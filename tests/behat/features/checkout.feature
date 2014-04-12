@@ -8,7 +8,9 @@ Feature: Checkout and pay
       And I press "Add to cart"
     Then I should see "ITEM SUCCESSFULLY ADDED TO YOUR CART"
     When I click "Go to checkout"
+    Given the test email system is enabled
 
+  @api
   Scenario: Add coffee mug to cart and update quantity
     Then I should see "Shopping cart"
     Then I should see the following <texts>
@@ -48,6 +50,7 @@ Feature: Checkout and pay
       And I select "03" from "commerce_payment[payment_details][credit_card][exp_month]"
       And I select "24" from "commerce_payment[payment_details][credit_card][exp_year]"
       And I press "Continue to next step"
+    #Then print last response
     Then I should see "Checkout complete"
       And I should see "Your order number is"
       And I should see "You can view your order on your account page when logged in"
