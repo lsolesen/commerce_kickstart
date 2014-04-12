@@ -50,7 +50,7 @@ Feature: Checkout and pay
       And I select "03" from "commerce_payment[payment_details][credit_card][exp_month]"
       And I select "24" from "commerce_payment[payment_details][credit_card][exp_year]"
       And I press "Continue to next step"
-    #Then print last response
+    Then print last response
     Then I should see "Checkout complete"
       And I should see "Your order number is"
       And I should see "You can view your order on your account page when logged in"
