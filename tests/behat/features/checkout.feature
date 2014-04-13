@@ -10,7 +10,6 @@ Feature: Checkout and pay
     When I click "Go to checkout"
     Given the test email system is enabled
 
-  @api
   Scenario: Add coffee mug to cart and update quantity
     Then I should see "Shopping cart"
     Then I should see the following <texts>
@@ -55,3 +54,5 @@ Feature: Checkout and pay
       And I should see "Your order number is"
       And I should see "You can view your order on your account page when logged in"
       And I should see "Return to the front page"
+    Then the email to "admin@example.com" should contain "Order"
+      And the email should contain "Thanks for your order"
