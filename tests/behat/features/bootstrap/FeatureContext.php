@@ -213,4 +213,16 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iWaitForSeconds($arg1) {
     sleep($arg1);
   }
+
+  /**
+   * @When /^I fill in the discount field with "([^"]*)"$/
+   */
+  public function iFillInTheDiscountFieldWith($value)
+  {
+    $element = $this->getSession()->getPage()->find('css', 'tr:nth-child(2) > td:nth-child(4) input');
+    if (!$element) {
+      throw new Exception('Cannot find the discount field');
+    }
+    $element->setValue($value);
+  }
 }
